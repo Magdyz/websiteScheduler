@@ -14,6 +14,20 @@ while True:
 page = f"https://www.{website}.com"
 today = time.strftime('%X %x')
 
+# asking which function to use wether to use one or five tabs option when opening a website
+
+request = input('Type (1) if you want one new window or (2) for five tabs for the same website: ')
+request = int(request)
+#if request.isnumeric() != True:
+#    print("This is not a valid answer. I'll use the default which is one new window")
+#    request = 1
+if request > 2 or request < 1:
+    print("This is not a valid answer. I'll use the default which is one new window")
+    request = 1
+
+
+
+
 # Constantly check inputs for the time are numbers  
 
 while True:
@@ -85,5 +99,9 @@ def openFiveTabs():
         time.sleep(3)
 
 # call a function
-openFiveTabs()
+if request == 1:
+    openOneWebsite()
+else:
+    openFiveTabs()
+
 
