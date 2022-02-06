@@ -9,4 +9,10 @@ The script asks for the time and date and name of the website that needs to open
 
 All inputs are sanitised to be numbers and text when needed.
 
+Two options are available. For example:
+
+1- Open a website that starts a queue exactly at 10 am automatically and be ahead of the queue.
+
+2- Open five tabs starting 9:59 AM in order to make sure you get in the queue ahead of anyone else.
+
 Thanks,
