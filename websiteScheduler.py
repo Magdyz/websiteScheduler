@@ -2,7 +2,15 @@ import webbrowser
 import time
 
 # specify a website in an input format
-website = input("Enter the website without www. or .com. Just a word like google, facebook, etc: ")
+
+# check if the input isalphabet or a word not a number or anything else
+while True:
+    website = input("Enter the website without www. or .com. Just a word like google, facebook, etc: ")
+    if website.isalpha():
+        break
+    else:
+        print('The website name need to be word not a number. Please try again!')
+
 page = f"https://www.{website}.com"
 today = time.strftime('%X %x')
 
@@ -12,13 +20,16 @@ while True:
     hours = input("Enter the hour like 02, 11, 23, etc: ")
     minutes = input("Enter the minutes like 02, 45, 00, etc: ")
     seconds = input("Enter the seconds like 02, 45, 00, etc: ")
-    if hours.isnumeric() and minutes.isnumeric() and seconds.isnumeric():
+    day = input("Enter the day as a number like 02, 22, 31, etc: ")
+    month = input("Enter the month as a number like 02 for February, 12 for December. etc: ")
+    year = input("Enter the year as a 2 digit number like 21 for 2021: ")
+    if hours.isnumeric() and minutes.isnumeric() and seconds.isnumeric() and day.isnumeric() and month.isnumeric() and year.isnumeric():
         break
     else:
-        print('Hours, minutes and seconds should be numbers. Please try again!')
+        print('Hours, minutes, seconds, day, month and year should be numbers. Please try again!')
 
 
-timeToOpen = f"{hours}:{minutes}:{seconds} 02/06/22"
+timeToOpen = f"{hours}:{minutes}:{seconds} {month}/{day}/{year}"
 
 
 class Website():
