@@ -20,17 +20,25 @@ while True:
     hours = input("Enter the hour like 02, 11, 23, etc: ")
     minutes = input("Enter the minutes like 02, 45, 00, etc: ")
     seconds = input("Enter the seconds like 02, 45, 00, etc: ")
-    day = input("Enter the day as a number like 02, 22, 31, etc: ")
+    day = input("Enter the day as a number like 02, 22, 31, etc or if it's TODAY say yes to Skip: ")
+
+# an option to skip adding the full day if it's the same day and just confirm
+
+    if day == 'yes' or day == 'YES' or day == 'y' or day == 'Y':
+        timeToOpen = f"{hours}:{minutes}:{seconds}" + time.strftime(' %x')
+        break
     month = input("Enter the month as a number like 02 for February, 12 for December. etc: ")
     year = input("Enter the year as a 2 digit number like 21 for 2021: ")
+
+# sanitise code by making sure the input is a number not anything else
+
     if hours.isnumeric() and minutes.isnumeric() and seconds.isnumeric() and day.isnumeric() and month.isnumeric() and year.isnumeric():
+        timeToOpen = f"{hours}:{minutes}:{seconds} {month}/{day}/{year}"
         break
     else:
         print('Hours, minutes, seconds, day, month and year should be numbers. Please try again!')
 
-
-timeToOpen = f"{hours}:{minutes}:{seconds} {month}/{day}/{year}"
-
+# class website with open one website or several tabs same website methods to be called later
 
 class Website():
     # a function to open a website and print opened
@@ -40,17 +48,17 @@ class Website():
         print(today)
 
     #a function to open 5 website after a 3 second wait
-    def openFiveTabs():
+    def openTabs():
         for i in range(5):
             webbrowser.open_new_tab(page)
-            print(f"page {i} opened")
+            print(f"Success! {page} tab number {i+1} opened")
             time.sleep(3)
             print(today)
 
     # compares real live time with a specified time in a variable in 
     # the beginning
 
-def setTime():
+def openOneWebsite():
     while time.strftime('%X %x') != timeToOpen:
         timeNow = time.strftime('%X %x')
 # checks if local time is bigger than or equal the inputted time and opens the website if so
@@ -63,6 +71,19 @@ def setTime():
         print (timeNow + " vs " + timeToOpen)
         time.sleep(3)
 
+def openFiveTabs():
+    while time.strftime('%X %x') != timeToOpen:
+        timeNow = time.strftime('%X %x')
+# checks if local time is bigger than or equal the inputted time and opens the website if so
+        if timeNow >= timeToOpen:
+            print("It's A Match")
+            print (timeNow + " vs " + timeToOpen)
+            Website.openTabs()
+            break
+        print("waiting!")
+        print (timeNow + " vs " + timeToOpen)
+        time.sleep(3)
 
 # call a function
-setTime()
+openFiveTabs()
+
