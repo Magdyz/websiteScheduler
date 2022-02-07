@@ -1,5 +1,5 @@
-# websiteScheduler
-Website scheduler script
+# Website Scheduler
+Website scheduler 
 
 A lot of websites these days ask you to wait in a queue starting certain times. The purpose of this script is to make sure you are the first or at least as early as possible to open the website. 
 
