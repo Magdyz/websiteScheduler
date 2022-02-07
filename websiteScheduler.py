@@ -1,6 +1,14 @@
 import webbrowser
 import time
 
+
+# a function to check input for int or str 
+
+## Future idea: maybe create def checkInput():
+
+# the default value is open one page
+
+
 # specify a website in an input format
 
 # check if the input isalphabet or a word not a number or anything else
@@ -16,17 +24,13 @@ today = time.strftime('%X %x')
 
 # asking which function to use wether to use one or five tabs option when opening a website
 
-request = input('Type (1) if you want one new window or (2) for five tabs for the same website: ')
-request = int(request)
-#if request.isnumeric() != True:
-#    print("This is not a valid answer. I'll use the default which is one new window")
-#    request = 1
-if request > 2 or request < 1:
-    print("This is not a valid answer. I'll use the default which is one new window")
+request = input('Type (1) if you want one new window or (2) for five tabs for the same website. The default value is (1): ')
+
+if request != '2':
+    print("Ok! I'll use the default which is one new window")
     request = 1
-
-
-
+else:
+    request = 2
 
 # Constantly check inputs for the time are numbers  
 
@@ -36,11 +40,15 @@ while True:
     seconds = input("Enter the seconds like 02, 45, 00, etc: ")
     day = input("Enter the day as a number like 02, 22, 31, etc or if it's TODAY say yes to Skip: ")
 
-# an option to skip adding the full day if it's the same day and just confirm
+# an option to skip adding the full day if it's the same day and just confirm. The is some number check sanitation
 
     if day == 'yes' or day == 'YES' or day == 'y' or day == 'Y':
         timeToOpen = f"{hours}:{minutes}:{seconds}" + time.strftime(' %x')
-        break
+        if hours.isnumeric() and minutes.isnumeric() and seconds.isnumeric():
+            break
+        else:
+            print('Hours, minutes, seconds, should be numbers. Please try again!')
+            continue
     month = input("Enter the month as a number like 02 for February, 12 for December. etc: ")
     year = input("Enter the year as a 2 digit number like 21 for 2021: ")
 
@@ -99,9 +107,7 @@ def openFiveTabs():
         time.sleep(3)
 
 # call a function
-if request == 1:
-    openOneWebsite()
-else:
+if request == 2:
     openFiveTabs()
-
-
+else:
+    openOneWebsite()
