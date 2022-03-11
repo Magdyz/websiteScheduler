@@ -18,7 +18,7 @@ No coding needed for this project. Feel free to fork and make it your own.
 
 ## To use Webscheduler all you need to do is download the zip file
 
-In the Zip file there are two files websiteScheduler.py and readme. In terminal
+In the Zip file there are two files `websiteScheduler.py` and `readme.md` In terminal
 
 ```
 $cd websiteScheduler-main
