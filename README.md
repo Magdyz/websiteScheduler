@@ -1,5 +1,4 @@
-# Website Scheduler
-Website scheduler 
+## Website scheduler 
 
 A lot of websites these days ask you to wait in a queue starting certain times. The purpose of this script is to make sure you are the first or at least as early as possible to open the website. 
 
@@ -15,19 +14,20 @@ Two options are available. For example:
 
 2- Open five tabs starting 9:59 AM in order to make sure you get in the queue ahead of anyone else.
 
+No coding needed for this project. Feel free to fork and make it your own.
 
 To use Webscheduler all you need to do is download the zip file
 
 In the Zip file there are two files websiteScheduler.py and readme. In terminal
 
-...
-cd websiteScheduler-main
-...
+```
+$cd websiteScheduler-main
+```
 
 Then run they python file
 
-...
-python3 websiteScheduler.py
-...
+```
+$python3 websiteScheduler.py
+```
 
 Enjoy
